@@ -32,7 +32,7 @@ st.markdown("""
 Want to view other ways the model has been used? Check out the <a href="https://app.powerbi.com/view?r=eyJrIjoiZWEwNjIxZWYtYTFjNS00Y2U5LTk3MDQtZDczNzIxMDRjODJiIiwidCI6ImE0NjIyOWM3LTIxZDEtNDE3ZC1hMWNiLTE4NTdhMDdkMjc2NSIsImMiOjh9&pageName=ReportSection5f8ea718003bde305590" target="_blank">dashboard</a> for more details.
 """, unsafe_allow_html=True)
 st.markdown("""
-See the data preparation and model development steps: <a href="https://github.com/ogambamaria/mod5_poa" target="_blank">Notebook</a>.
+See the data preparation and model development steps: <a href="https://github.com/ogambamaria/mod5_poa" target="_blank">Jupyter Notebook</a>.
 """, unsafe_allow_html=True)
 
 predictions = model.predict(input_df)
