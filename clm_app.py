@@ -12,18 +12,17 @@ st.title('CLM Prediction App')
 st.sidebar.header("About the App")
 st.sidebar.info("This Streamlit app is designed to load, preprocess, visualize, and model data using CatBoost with tuned parameters for prediction.")
 
-# Load your model
+# Load model
 st.cache_data()
 def load_model():
     return joblib.load('catboost_model_clm.pkl')
 
 model = load_model()
 
-# Load your data
+# Load data
 st.cache_data()
 def load_data():
     data = pd.read_csv('data/saved_data.csv', low_memory=False, index_col=0)
-    # Preprocessing steps if needed
     return data
 
 input_df = load_data()
@@ -38,11 +37,11 @@ See the data preparation and model development steps: <a href="https://github.co
 predictions = model.predict(input_df)
 input_df['Predictions'] = predictions
 
-# Model performance (assuming actual values are present)
+# Model performance
 report = classification_report(input_df['ServiceSatisfaction'], predictions, output_dict=True)
 st.write('Classification Report:', pd.DataFrame(report).transpose())
 
-# Feature Importance Chart
+# Feature Importance
 feature_importances = pd.Series(model.feature_importances_, index=model.feature_names_)
 fig = px.bar(feature_importances, x=feature_importances.values, y=feature_importances.index, orientation='h')
 st.plotly_chart(fig)
